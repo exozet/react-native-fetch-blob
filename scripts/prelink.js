@@ -11,16 +11,6 @@ try {
 
   console.log('RNFetchBlob detected app version => ' + VERSION);
 
-  if(VERSION < 0.28) {
-    console.log('You project version is '+ VERSION + ' which may not compatible to react-native-fetch-blob 7.0+, please consider upgrade your application template to react-native 0.27+.')
-    // add OkHttp3 dependency fo pre 0.28 project
-    var main = fs.readFileSync(PACKAGE_GRADLE);
-    console.log('adding OkHttp3 dependency to pre 0.28 project .. ')
-    main = String(main).replace('//{RNFetchBlob_PRE_0.28_DEPDENDENCY}', "compile 'com.squareup.okhttp3:okhttp:3.4.1'");
-    fs.writeFileSync(PACKAGE_GRADLE, main);
-    console.log('adding OkHttp3 dependency to pre 0.28 project .. ok')
-  }
-
   console.log('Add Android permissions => ' + (addAndroidPermissions == "true"))
 
   if(addAndroidPermissions) {
